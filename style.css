@@ -642,3 +642,80 @@ body {
         display: none;
     }
 }
+.letter-box{
+    width: 90%;
+    max-width: 700px;
+    margin: 80px auto 40px;
+    text-align: center;
+    color: white;
+    font-size: 1.4rem;
+    line-height: 1.8;
+    font-family: 'Poppins', sans-serif;
+    white-space: pre-line;
+}
+
+/* blinking typing cursor */
+#typewriterText::after{
+    content: "|";
+    margin-left: 5px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink{
+    0%{opacity:1;}
+    50%{opacity:0;}
+    100%{opacity:1;}
+}
+/* ===== IMPROVE FINAL LETTER READABILITY ===== */
+
+/* dark overlay on background */
+.final-page::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.35);
+    z-index:0;
+}
+
+/* keep content above overlay */
+.container{
+    position:relative;
+    z-index:2;
+}
+
+/* glass card for the letter */
+.letter-box{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border-radius:18px;
+    padding:30px 28px;
+    margin:40px auto;
+    max-width:700px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.35);
+}
+
+/* improve text contrast */
+#typewriterText{
+    color:#fff;
+    font-size:1.35rem;
+    line-height:1.9;
+    letter-spacing:0.4px;
+    text-shadow:
+        0 2px 6px rgba(0,0,0,0.8),
+        0 0 15px rgba(0,0,0,0.5);
+}
+
+/* cursor visibility */
+#typewriterText::after{
+    color:#ffd6e0;
+    font-weight:bold;
+}
+
+/* mobile readability */
+@media (max-width:600px){
+    #typewriterText{
+        font-size:1.15rem;
+        line-height:1.8;
+    }
+}
