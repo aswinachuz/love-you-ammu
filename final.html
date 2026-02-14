@@ -1,57 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forever with You</title>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="final-page">
-    <!-- Floating Hearts Background -->
-    <div class="floating-hearts-container"></div>
+/* TYPEWRITER LETTER */
 
-    <!-- Fireworks Container -->
-    <div class="fireworks-container"></div>
+function startLoveLetterTypewriter(){
+const el=document.getElementById("typewriterText");
+if(!el) return;
 
-    <!-- Main Content -->
-    <div class="container">
-        <div class="card final-card">
-            <div class="typewriter-text" id="typewriterText">
-                <p>I don't know when you became
+const text=`I don't know when you became
 the most important part of my day.
-<br>
+
 Talking to you makes everything better.
 Even a normal day feels special
 when you are in it.
-<br>
+
 I may not be perfect,
 but my feelings for you are real.
-<br>
+
 I just want to make you smile,
 be there for you,
 and stay beside you
 for a very long time.
+
 So… will you be mine?
-❤️
-<br><br>Will you be mine forever? Ammu </p>
-            </div>
-            
-            <div class="final-button-group">
-                <button id="finalYesBtn" class="btn btn-yes">
-                    <span class="btn-text">YES</span>
-                    <span class="btn-emoji">💍</span>
-                </button>
-                <button id="thinkAgainBtn" class="btn btn-think-again">
-                    <span class="btn-text">THINK AGAIN</span>
-                    <span class="btn-emoji">🙈</span>
-                </button>
-            </div>
+❤️`;
 
-            <div id="finalMessage" class="final-message"></div>
-        </div>
-    </div>
+let i=0;
+const speed=50;
 
-    <script src="script.js"></script>
-</body>
-</html>
+function type(){
+if(i<text.length){
+el.textContent+=text.charAt(i);
+i++;
+setTimeout(type,speed);
+}
+}
+type();
+}
+
+/* PAGE LOAD */
+document.addEventListener("DOMContentLoaded",()=>{
+
+startLoveLetterTypewriter();
+
+const yes=document.getElementById("finalYesBtn");
+const no=document.getElementById("thinkAgainBtn");
+const msg=document.getElementById("finalMessage");
+const img=document.getElementById("foreverImage");
+
+/* YES CLICK */
+yes.onclick=()=>{
+playFireworks();
+msg.textContent="You are officially my forever ❤️";
+
+setTimeout(()=>{
+img.classList.add("show");
+},700);
+
+yes.disabled=true;
+no.disabled=true;
+};
+
+/* RUNAWAY BUTTON */
+no.onmouseover=()=>move(no);
+no.ontouchstart=(e)=>{e.preventDefault();move(no);};
+
+});
+
+/* MOVE BUTTON */
+function move(btn){
+const x=(Math.random()-0.5)*350;
+const y=(Math.random()-0.5)*350;
+btn.style.transform=`translate(${x}px,${y}px)`;
+}
+
+/* FIREWORKS */
+function playFireworks(){
+for(let i=0;i<70;i++){
+const f=document.createElement("div");
+f.className="firework";
+f.innerText=["✨","💖","💝","🎆"][Math.floor(Math.random()*4)];
+
+const x=window.innerWidth*Math.random();
+const y=window.innerHeight*Math.random()*0.6;
+
+const tx=(Math.random()-0.5)*300;
+const ty=(Math.random()-0.5)*300;
+
+f.style.left=x+"px";
+f.style.top=y+"px";
+f.style.setProperty("--tx",tx+"px");
+f.style.setProperty("--ty",ty+"px");
+
+document.body.appendChild(f);
+setTimeout(()=>f.remove(),1500);
+}
+}
