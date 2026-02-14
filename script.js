@@ -334,6 +334,9 @@ function initGalleryPage() {
    ======================================== */
 
 function initFinalPage() {
+    startLoveLetterTypewriter();
+
+
     const finalYesBtn = document.getElementById('finalYesBtn');
     const thinkAgainBtn = document.getElementById('thinkAgainBtn');
     const typewriterText = document.getElementById('typewriterText');
@@ -486,3 +489,44 @@ window.addEventListener('beforeunload', (e) => {
         // This is just for clean exit
     }
 });
+/* ========================================
+   TYPEWRITER LOVE LETTER (FINAL PAGE)
+   ======================================== */
+
+function startLoveLetterTypewriter() {
+    const element = document.getElementById("typewriterText");
+    if (!element) return;
+
+    const text = `I don't know when you became
+the most important part of my day.
+
+Talking to you makes everything better.
+Even a normal day feels special
+when you are in it.
+
+I may not be perfect,
+but my feelings for you are real.
+
+I just want to make you smile,
+be there for you,
+and stay beside you
+for a very long time.
+
+So… will you be mine Forever Ammu ?
+❤️`;
+
+    const speed = 50; // 50ms per character
+    let i = 0;
+
+    element.textContent = ""; // clear existing text
+
+    function type() {
+        if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        }
+    }
+
+    type();
+}
