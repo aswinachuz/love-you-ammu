@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Words</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="verify-page">
+    <!-- Floating Hearts Background -->
+    <div class="floating-hearts-container"></div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="card verify-card">
+            <h2 class="verify-title">If you truly love me, type the magic words</h2>
+            
+            <div class="verify-container">
+                <input 
+                    type="text" 
+                    id="magicInput" 
+                    class="magic-input" 
+                    placeholder="Type here..."
+                    autocomplete="off"
+                >
+                <div id="errorMessage" class="error-message"></div>
+            </div>
+
+            <button id="continueBtn" class="btn btn-continue" disabled>
+                Continue
+            </button>
+
+            <p class="hint-text">Magic words: <span style="color: #ff6b9d;">I love you too</span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

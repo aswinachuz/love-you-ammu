@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Beautiful Memories</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="gallery-page">
+    <!-- Floating Hearts Background -->
+    <div class="floating-hearts-container"></div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="gallery-title">Our Beautiful Memories ❤️</h1>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item" data-image="img1.jpg">
+                <img src="./1.jpeg" alt="Memory 1">
+                <div class="overlay">👀</div>
+            </div>
+            <div class="gallery-item" data-image="img2.jpg">
+                <img src="./2.jpeg" alt="Memory 2">
+                <div class="overlay">👀</div>
+            </div>
+            <div class="gallery-item" data-image="img3.jpg">
+                <img src="./3.jpeg" alt="Memory 3">
+                <div class="overlay">👀</div>
+            </div>
+            <div class="gallery-item" data-image="img4.jpg">
+                <img src="./4.jpeg" alt="Memory 4">
+                <div class="overlay">👀</div>
+            </div>
+            <div class="gallery-item" data-image="img5.jpg">
+                <img src="./5.jpeg" alt="Memory 5">
+                <div class="overlay">👀</div>
+            </div>
+            <div class="gallery-item" data-image="img6.jpg">
+                <img src="./6.jpeg" alt="Memory 6">
+                <div class="overlay">👀</div>
+            </div>
+        </div>
+
+        <div class="gallery-button-container">
+            <button id="nextBtn" class="btn btn-next">
+                One More Question... 💭
+            </button>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-image" src="" alt="Full screen image">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
